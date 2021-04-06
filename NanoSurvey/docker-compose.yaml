@@ -1,0 +1,29 @@
+version: "3.7"
+
+services:
+  postgres:
+    container_name: 'postgres'
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=123456789
+    ports:
+      - 5432:5432
+  api:
+    container_name: 'api'
+    depends_on:
+      - postgres
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8090:80"
+    environment:
+      "POSTGRES_HOST": "postgres"
+      "POSTGRES_PORT": 5432
+      "POSTGRES_DB": "postgres"
+      "POSTGRES_USER": "postgres"
+      "POSTGRES_PASSWORD": "123456789"
+    restart: always
+
+
+
