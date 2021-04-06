@@ -23,7 +23,7 @@ docker-compose up
         "Айфон",
         "Андроид"
     ]
-}
+    }
 
 
 ### POST api/surveys/[idSurvey]/questions/[idQuestion]
@@ -31,9 +31,10 @@ docker-compose up
 Пример: http://localhost:8090/api/surveys/1/questions/1
 
 Запрос:
-{
-"id": 1
-}
+
+    {
+     "id": 1
+    }
 
 Ответ:
 2
